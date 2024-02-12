@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}{% endblock title %} | HARSHA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class=" bg-white-200 flex justify-between ">
+        <img src="/visitingcard.png" class=" px-2 py-2 h-9 w-9 rounded-2xl" alt="img"> 
+        <h1 class="py-2 font-bold">HARSHA</h1>
+        <ul class="flex px-10 py-2 space-x-3 justify-end">
+            <li class="cursor-pointer "><a href="/log.html">Login</a></li>
+            <li class="cursor-pointer"><a href="/sign.html">Sign up</a></li>
+        </ul>
+    </nav>
+    {% block body %}{% endblock body %}
+    <div class="relative">
+        <img src="/static/bgimg.jpg" alt="Example Image" class="w-full h-auto">
+        <div class="absolute top-20 left-10 w-64 h-100 flex justify-start items-start">
+         <div class="bg-black bg-opacity-0 text-black p-4 ">
+         <h2 class="text-2xl font-bold">We're here for you </h2>
+         <p class="text-md justify-items-center w-[35vw]">Your mental health is important. Some days are better than others and we all need a helping hand from time to time.<br><br>Wherever you are in your mental health journey, we'll be here to help</p>
+         </div>
+        </div>
+    </div>
+</body>
+</html>
