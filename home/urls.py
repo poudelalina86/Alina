@@ -10,5 +10,6 @@ urlpatterns = [
     path('signin',views.signin,name="signin"),
     path('logout',views.logoutuser,name="logout"),
     path('homepage',views.homepage,name='homepage'),
-    path('signinauth',views.signin_auth,name="signinauth")
+    path('signinauth',views.signin_auth,name="signinauth"),
+    path('profile',views.profile,name="profile")
 ]
