@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User 
 from django.contrib.auth import logout,login,authenticate
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -15,11 +15,11 @@ def login_auth(request):
          email = request.POST.get('email')
          password1= request.POST.get('password')
          #check if user has correct credentials
-         user = authenticate(request,email=email, password=password1)
+         user = authenticate(request, username=email, password=password1)
          if user is not None:
             # A backend authenticated the credentials
             login(request,user)
-            return redirect('homepage')
+            return redirect('/homepage')
          else:
              # No backend authenticated the credentials
              return render( request,'log.html')
@@ -40,17 +40,14 @@ def signin_auth(request):
         password2=request.POST.get('confirm-password')
 
         if password1!=password2:
-            return HttpResponse("Your password and conform password are not same!!!!")
+            return HttpResponse("Your password and confirm password are not same!!!!")
         else:
           my_user=User.objects.create_user(username,email,password1)
           my_user.save()
           return redirect('loginpage')
 
-
+@login_required(login_url='/loginpage')
 def homepage(request):
-    if request.user.is_anonymous :
-        return redirect('loginpage')
-    else:
         return render(request,'home.html')
 
 
