@@ -1,8 +1,7 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User 
-from django.contrib.auth import logout,login
-from django.contrib.auth import authenticate
+from django.contrib.auth import logout,login,authenticate
 # from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
@@ -12,18 +11,19 @@ def login_page(request):
     return render(request,'log.html')
 
 def login_auth(request):
-    if request.method =="POST":
-        email= request.POST.get('email')
-        password= request.POST.get('password')
-        #check if user has correct credentials
-        user = authenticate(request,email=email, password=password)
-        if User is not None:
-           # A backend authenticated the credentials
-           login(request,user)
-           return redirect('homepage')
-        else:
-           # No backend authenticated the credentials
-           return render(request,'log.html')
+    if request.method =='POST':
+         email = request.POST.get('email')
+         password1= request.POST.get('password')
+         #check if user has correct credentials
+         user = authenticate(request,email=email, password=password1)
+         if user is not None:
+            # A backend authenticated the credentials
+            login(request,user)
+            return redirect('homepage')
+         else:
+             # No backend authenticated the credentials
+             return render( request,'log.html')
+    return render( request,'log.html')
 
 def logoutuser(request):
      logout()
@@ -48,7 +48,7 @@ def signin_auth(request):
 
 
 def homepage(request):
-    if request.user.is_anonymous:
+    if request.user.is_anonymous :
         return redirect('loginpage')
     else:
         return render(request,'home.html')
