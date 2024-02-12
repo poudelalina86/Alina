@@ -26,7 +26,7 @@ def login_auth(request):
     return render( request,'log.html')
 
 def logoutuser(request):
-     logout()
+     logout(request)
      return redirect('/')
 
 def signin(request):
@@ -49,6 +49,15 @@ def signin_auth(request):
 @login_required(login_url='/loginpage')
 def homepage(request):
         return render(request,'home.html')
+
+def logoutuser(request):
+     logout(request)
+     return redirect('/')
+
+@login_required(login_url='/loginpage')
+def profile(request):
+     return render(request,'profile.html')
+
 
 
 
