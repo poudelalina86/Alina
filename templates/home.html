@@ -15,8 +15,10 @@
   </head>
 
   <body>
+    {% block header %}
     <header>
       <!--NavBar Section-->
+
       <div class="navbar">
         <nav class="navigation hide" id="navigation">
                 <span class="close-icon" id="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
@@ -41,12 +43,13 @@
         </div>
       </div>
     </header>
+    {% endblock header%}
     <div class="container">
       <!--Display posts table-->
       <div class="posts-table">
         <div class="table-head">
           <div class="subjects">Subjects</div>
-          <div class="replies">Replies/Views</div>
+          <div class="replies">Replies</div>
         </div>
         <div class="table-row">
           <div class="subjects">
@@ -57,8 +60,9 @@
             >
           </div>
           <div class="replies">
+            <button><a href='/detailpage'>
             2 replies <br />
-            125 views
+            </a> </button>
           </div>
         </div>
         <!--starts here-->
@@ -72,8 +76,9 @@
             >
           </div>
           <div class="replies">
+            <button><a href='/detailpage'>
             2 replies <br />
-            125 views
+            </a> </button>
           </div>
         </div>
 
@@ -86,8 +91,9 @@
             >
           </div>
           <div class="replies">
+            <button><a href='/detailpage'>
             2 replies <br />
-            125 views
+            </a> </button>
           </div>
         </div>
 
@@ -100,8 +106,9 @@
             >
           </div>
           <div class="replies">
+            <button><a href='/detailpage'>
             2 replies <br />
-            125 views
+            </a> </button>
           </div>
         </div>
 
@@ -114,8 +121,9 @@
             >
           </div>
           <div class="replies">
+            <button><a href='/detailpage'>
             2 replies <br />
-            125 views
+            </a> </button>
           </div>
         </div>
 
@@ -128,8 +136,9 @@
             >
           </div>
           <div class="replies">
+            <button><a href='/detailpage'>
             2 replies <br />
-            125 views
+            </a> </button>
           </div>
         </div>
       </div>

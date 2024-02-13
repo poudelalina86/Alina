@@ -11,5 +11,6 @@ urlpatterns = [
     path('logout',views.logoutuser,name="logout"),
     path('homepage',views.homepage,name='homepage'),
     path('signinauth',views.signin_auth,name="signinauth"),
-    path('profile',views.profile,name="profile")
+    path('profile',views.profile,name="profile"),
+    path('detailpage',views.detailpage,name="detailpage")
 ]

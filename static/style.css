@@ -21,9 +21,9 @@ h1{
 }
 
 
-/* ########################################### */
+
 /*           Forums.html                       */
-/* ########################################### */
+
 .container{
     margin: 20px;
     padding: 20px;
@@ -266,15 +266,7 @@ header{
     font-size:20px;
     font-weight:bold;
 }
-/* Footer Styling */
-
-/* footer{
-    margin-top: 20px;
-    padding: 20px;
-    background-color:  #94add1;
-    display: block;
-    text-align: center;
-} */  
+/  
 
 /* ########################################### */
 /*            posts.html                       */
@@ -390,15 +382,15 @@ header{
 
 .head{
     display: flex;
-    background-color: #2C2C2C;
+    background-color:#5389db;
     padding: 5px;
     font-weight: bold;
     font-size: 15px;
 }
 
-.authors{
+/* .authors{
     flex: 20%;
-}
+} */
 
 .content{
     flex: 80%;
@@ -406,19 +398,19 @@ header{
 
 .body{
     display: flex;
-    background-color: #131415;
+    background-color: rgb(147 197 253);
     padding: 10px;
     margin-top: 5px;
 }
 
-.body .authors .username{
+/* .body .authors .username{
     font-size: 20px;
 }
 
 .body .authors img{
     max-width: 50px;
     max-height: 80px;
-}
+} */
 
 .body .content .comment button{
     border:none;
