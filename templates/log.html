@@ -6,6 +6,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
+{% for message in messages %}
+    <div class="message {{ message.tags }}">
+        {{ message }}
+    </div>
+{% endfor %}
 <body class="bg-gray-100 flex items-center justify-center h-screen login">
     <div class="bg-blue-300 p-8 rounded shadow-md max-w-md w-full">
         <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
@@ -28,6 +33,7 @@
         </form>
     </div>
 </body>
+{{ redirect_to_login_immediately }}
 </html>
 
 
