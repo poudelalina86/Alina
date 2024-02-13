@@ -444,7 +444,10 @@ header{
     border: solid 1px #000000;
 }
 
-
+.wrapper{
+    width: 95%;
+    margin: auto;
+}
 
 
 
