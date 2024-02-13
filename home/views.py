@@ -58,6 +58,10 @@ def logoutuser(request):
 def profile(request):
      return render(request,'profile.html')
 
+@login_required(login_url='/loginpage')
+def detailpage(request):
+    return render(request,'detail.html')
+
 
 
 
