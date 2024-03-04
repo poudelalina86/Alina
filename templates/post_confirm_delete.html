@@ -17,7 +17,6 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="{% url 'post-create' %}">Post Create</a>
               <a class="nav-item nav-link" href="/profile">Profile</a>
               <a class="nav-item nav-link" href="/logout">Logout</a>
             </div>
@@ -28,31 +27,18 @@
     {% comment %} end of navigation bar {% endcomment %}
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8">
-          {% for post in posts %}
-           <article class="media content-section">
-            <img class ="rounded-circle article-img"src="{{post.author.profile.image.url}}">
-            <div class="media-body">
-              <div class="article-metadata">
-                <a class="mr-2" href="#">{{ post.author }}</a>
-                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-              </div>
-              <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-              <p class="article-content">{{ post.content }}</p>
-            </div>
-           </article>
-          {% endfor%}
-        </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Create new post</h3>
-            <p class='text-muted'>You can add post information.
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light"><a href={% url 'post-create' %}>Post Title</a></li>
-                <li class="list-group-item list-group-item-light">Post content</li>
-              </ul>
-            </p>
-          </div>
+        <div class="content-section">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Delete Post</legend>
+                    <h2>Are you sure you want to delete the post "{{ object.title }}"</h2>
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                    <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">Cancel</a>
+                </div>
+            </form>
         </div>
       </div>
     </main>
