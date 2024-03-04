@@ -148,9 +148,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-<<<<<<< HEAD
-AUTO_LOGOUT = {'IDLE_TIME': 600, 'REDIRECT_TO_LOGIN_IMMEDIATELY': True, # logout after 10 minutes of downtime
-'MESSAGE': 'The session has expired. Please login again to continue.'}
-=======
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
->>>>>>> forum
