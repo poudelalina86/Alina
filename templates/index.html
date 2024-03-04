@@ -1,33 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HARSHA</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<style>
-    .homepage_img{
-        height : 50rem;
-    }
-</style>
-<body>
-    <nav class=" bg-white-200 flex justify-between ">
-        <img src="/static/visitingcard.png" class=" px-2 py-2 h-14 w-9 rounded-2xl" alt="img"> 
-        <h1 class="py-3 font-bold text-lg">HARSHA</h1>
-        <ul class="flex px-10 py-2 space-x-3 justify-end">
-            <li class="cursor-pointer "><button class="bg-cyan-400 rounded-full px-2 py-2"><a href="/loginpage">Login</a></button></li>
-            <li class="cursor-pointer"><button class="bg-cyan-400 rounded-full px-2 py-2"><a href="/signin">Sign up</a></button></li>
-        </ul>
-    </nav>
-    <div class="relative">
-        <img src="/static/bgimg.jpg" alt="Example Image" class="w-full h-auto homepage_img">
-        <div class="absolute top-20 left-10 w-64 flex justify-start items-start">
-         <div class="bg-black bg-opacity-0 text-black p-4 ">
-         <h2 class="text-2xl font-bold">We're here for you </h2>
-         <p class="text-md justify-items-center w-[35vw]">Your mental health is important. Some days are better than others and we all need a helping hand from time to time.<br><br>Wherever you are in your mental health journey, we'll be here to help</p>
-         </div>
+{% extends "base.html" %}
+{% block content %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid d-flex justify-content-sm-around" id="nav_rapper ">
+        <a class="navbar-brand" href="#" id="logo">HARSHA</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-sm-between" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Why Harsha?</a>
+            </li>
+            
+          </ul>
+          <div class="nav_login">
+            <ul class="d-flex justify-content-center align-item-center m-0">
+              <li class="nav-item">
+                <button type="button" class="btn d-flex mx-4 " id="Log">
+                  <a href="/loginpage">Login</a>
+                </button>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn" id="sign">
+                  <a href="/signin">Sign Up</a>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
+    </nav>
+    <div class="home">
+      <div class="content">
+        <!-- <h3>We're here for you</h3> -->
+        <h2>Always <span class="changecontent"></span></h2>
+        <p class="m-0">
+          Your mental health is important. Some days are better than others and
+          we all need a helping hand from time to time.
+        </p>
+        <p>
+          Wherever you are in your mental health journey, we'll be here to help.
+        </p>
+        <a href="/signin">Start Here <i class="fas fa-arrow-right"></i></a>
+      </div>
     </div>
-</body>
-</html>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+{% endblock %}

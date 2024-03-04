@@ -1,0 +1,104 @@
+body *{
+    font-family: "Nunito", sans-serif;
+}
+.navbar .nav-item a{
+
+        
+     color:black;
+     font-size: 20px;
+    text-decoration:none;
+}
+#nav_rapper{
+    display:flex;
+    justify-content: space-between;
+}
+.nav_login li{
+    text-decoration: none;
+    list-style-type: none;
+}
+#sign{
+    margin: auto;
+}
+#logo{
+    margin:10px;
+    font-size: 30px;
+    font-weight: 500;
+    color:rgb(45, 123, 187);
+}
+/* .btn{
+    background-color:rgb(38, 143, 204) ;
+} */
+ .btn:hover{
+    background: rgb(31, 124, 179);
+    color:white;
+}
+nav{
+    height: 60px;
+    position: fixed !important;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.home{
+    width:100%;
+    height:100vh;
+    background-image: url(./two.jpg) ;
+    background-size: cover;
+  background-position: center;
+ }
+ .home .content{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    padding-top:100px;
+ }
+ .home .content h3{
+    color: rgb(0, 0, 0);
+    font-size :40px;
+    font-weight:600;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom:30px;
+    margin-top:5px
+ }
+ .home .content h2{
+    color: rgb(3, 3, 3) !important;
+ }
+ .changecontent::after{
+    content:' ';
+    color:rgb(45, 123, 187);
+    text-shadow: 0px 1px 1px black;
+    animation: changetext 10s infinite linear;
+
+ }
+@keyframes changetext{
+    0%{content:"Stay inspired";}
+    10%{content:"Think positive";}
+    20%{content:"Shine bright";}
+    30%{content:" Keep smiling";}
+    40%{content:" Embrace change";}
+    40%{content:"Stay inspired";}
+}
+ .home .content p{
+    color: rgb(10, 9, 9);
+    font-size :20px;
+    font-weight:600;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom:30px;
+    margin-top:5px
+ }
+ .home .content a{
+    padding :10px;
+    background: rgb(203, 222, 228);
+    color:black;
+    letter-spacing:2px;
+    font-weight:550;
+    border-radius:5px;
+    text-decoration: none;
+ }
+ .home .content a:hover{
+    background: rgb(31, 124, 179);
+    color:white;
+ }

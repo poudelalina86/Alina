@@ -15,9 +15,16 @@ from django.contrib.messages import constants as messages
 
 
 from pathlib import Path
+from .info import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+  
+EMAIL_USE_TLS = EMAIL_USE_TLS
+EMAIL_HOST = EMAIL_HOST
+EMAIL_HOST_USER = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
+EMAIL_PORT = EMAIL_PORT
 
 
 # Quick-start development settings - unsuitable for production
@@ -35,14 +42,16 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'home',
+    'home.apps.HomeConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   
+
 ]
 
 MIDDLEWARE = [
@@ -123,6 +132,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 #added manually
 STATICFILES_DIRS = [
     BASE_DIR / "static"
@@ -133,3 +144,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

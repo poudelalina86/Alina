@@ -3,3 +3,6 @@ from django.contrib import admin
 
 # Register your models here.
 # admin.site.register(Login)
+from .models import Post
+
+admin.site.register(Post)
