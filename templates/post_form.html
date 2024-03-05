@@ -25,20 +25,32 @@
       </nav>
     </header>
     {% comment %} end of navigation bar {% endcomment %}
-    <main role="main" class="container">
-      <div class="row">
-        <div class="content-section">
-            <form method="POST">
+
+      <main role="main" class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="content-section">
+              <form method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Blog Post</legend>
-                    {{ form }}
+                  <legend class="border-bottom mb-4">Create Post</legend>
+                  {{ form }}
                 </fieldset>
-                <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Post</button>
+                <div class="form-group mb-3">  <button class="btn btn-primary" type="submit">Post</button>
                 </div>
-            </form>
+              </form>
+            </div>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+      
+      <style>
+        .form-control[id^="id_content"] {  /* Target textarea with id starting with "id_content" */
+          height: 100px;  /* Set custom height (optional) */
+        }
+      </style>
+
+
+    
+
  {% endblock %}
