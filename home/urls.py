@@ -14,7 +14,8 @@ urlpatterns = [
     path('homepage/post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('homepage/post/create/', PostCreateView.as_view(),name='post-create'),
     path('homepage/post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
-     path('homepage/post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+    path('homepage/post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+    # path('postComment', views.postComment, name="postComment"),
     path('profile',user_views.profile,name="profile"),
     path('logout',views.logoutuser,name="logout"),
     
