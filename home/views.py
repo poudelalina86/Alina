@@ -1,3 +1,5 @@
+import os
+import pickle
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User 
@@ -23,22 +25,7 @@ def homepage(request):
         }
         return render(request,'home.html',context)
 
-# class PostListView(ListView):
-#     model = Post
-#     template_name= 'home.html'
-#     context_object_name = 'posts'
-#     ordering = ['-date_posted']
 
-#     def form_valid(self, form):
-#         form.instance.author = self.request.user
-#         return super().form_valid(form)
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         # Get all comments related to the posts
-#         comments = PostComment.objects.select_related('post').filter(post__in=context['posts'])
-#         context['comments'] = comments
-#         return context
 
 from .forms import CommentForm
 
@@ -78,13 +65,26 @@ class PostDetailView(DetailView):
             comment.post = post
             comment.save()
             return redirect('post-detail', pk=post.pk) 
- 
+        
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+model = pickle.load(open("./home/model.pkl", "rb"))
+vectorizer = pickle.load(open("./home/tfidf.pkl", "rb"))
+
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name= 'post_form.html'
     fields = ['title', 'content']
 
+    def classify_post(self, comment):
+        x = vectorizer.transform([comment])
+        value = model.predict(x)[0]
+        return value
+        
     def form_valid(self, form):
+        canPost = not self.classify_post(self.request.POST.get("content"))
+        if not canPost:
+            return HttpResponse("Spam detected")
         form.instance.author = self.request.user
         return super().form_valid(form)
 
